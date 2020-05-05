@@ -1,0 +1,14 @@
+Daftar Pekerjaan : 
+
+- Belom Selesai : 
+1. Membuat tampilan layout website untuk halaman chat, halaman utama dan halaman komunikasi bot
+2. Memprogram tampilan layout website untuk halaman chat, halaman utama dan halaman komunikasi bot
+   dengan ekstensi file php.
+
+
+- Finished : 
+1. Membuat database MySql
+2. Memprogram beberapa tampilan layout website seperti ( Sign In, Sign Up, Change Privacy, Change Profile,
+   Theme Store ) dalam bahasa HTML dan CSS.
+3. Menambahkan perintah bahasa PHP kepada beberapa tampilan layout website seperti ( Sign In, Sign Up, Change
+   Privacy, Change Profille dan Theme Store ).
