@@ -255,3 +255,86 @@
             </div>
 		</div>
     </div>
+
+    <script>
+       var date = new Date();  
+
+       var bulan = {
+           0:"January",1:"February",2:"March",3:"April",4:"May",5:"June",
+           6:"July",7:"August",8:"September",9:"Oktober",10:"November",11:"Desember"
+       }
+       var hari = {
+          0:"Sunday",1:"Monday",2:"Tuesday",3:"Wednesday",4:"Thursday",5:"Friday",6:"Saturday"
+       }
+
+       var translate = {
+           "hello":"Hey",
+           "hey":"Hello",
+           "halo":"Hai",
+           "helo":"Hei",
+           "hai":"Halo",
+           "hei":"Halo",
+           "good_morning":"Good Morning too",
+           "good_afternoon":"Good afternoon too",
+           "good_evening":"Good evening too",
+           "good_night":"Good night too",
+           "how_are_you_?":"I'm fine. How about you?",
+           "how_are_you":"I'm fine. How about you?",
+           "introduce":"I'm robot in this website, hopeful we can be a good friend",
+           "year":`${date.getFullYear()}`,
+           "month":`${bulan[date.getMonth()]}`,
+           "day":`${hari[date.getDay()]}`,
+           "today":`${hari[date.getDay()]}`
+       }
+
+       var input = document.querySelector(".textbox-type input");
+       var i = 0;
+
+       $(document).ready(function(){
+           $(input).keypress(function(e){
+               input = document.querySelector(".textbox-type input");
+               if(e.which == 13){   
+                    date = new Date();              
+                    var elementDiv = document.createElement("div");
+                    var elementParagraf = document.createElement("p");
+                    var communication_box = document.querySelector(".communication");
+                    var node = document.createTextNode(input.value);
+                    elementParagraf.appendChild(node);
+                    elementDiv.appendChild(elementParagraf);
+                    elementDiv.className = "element-div";
+                    communication_box.appendChild(elementDiv);
+                    var jumlah = document.querySelectorAll(".element-div");
+                    jumlah[i].classList.add("type");
+                    i += 1;
+                    var nilai = document.querySelector(".textbox-type input").value;
+                    input.value = "";
+
+                   setTimeout(function(){
+                        if(i != 0){
+                            var kalimat = nilai.toString().toLowerCase().replace(/ /g, "_");
+                            // console.log(kalimat);
+                            if(translate[kalimat] != undefined){
+                                var node = document.createTextNode(translate[kalimat]);
+                            }else{
+                                var node = document.createTextNode("Sorry, i dont understand");
+                            }
+                            var elementDiv = document.createElement("div");
+                            var elementParagraf = document.createElement("p");
+                            var communication_box = document.querySelector(".communication");
+                            elementParagraf.appendChild(node);
+                            elementDiv.appendChild(elementParagraf);
+                            elementDiv.className = "element-div";
+                            communication_box.appendChild(elementDiv);
+                            var jumlah = document.querySelectorAll(".element-div");
+                            jumlah[i].classList.add("answer");
+                            i += 1;
+                            input.value = "";
+                    }
+                   }, 1000);
+               }
+           })
+       }) 
+    </script>
+
+</body>
+</html>
